@@ -27,14 +27,17 @@ namespace Nsharp.Commands {
 
 		private class CmakeSetup {
 
-			private Uri linux64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Linux-x86_64.tar.gz");
-			private Uri windows64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-win64-x64.zip");
+			private FileInfo fileInfo = null;
+			private readonly Uri linux64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Linux-x86_64.tar.gz");
+			private readonly Uri windows64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-win64-x64.zip");
 
 			public async Task<int> DownloadCmakeAsync(CancellationToken cancellationToken = default) {
 				using var httpClient = new HttpClient();
 				HttpResponseMessage httpResponseMessage = null;
 				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
 					httpResponseMessage = await httpClient.GetAsync(windows64Url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+				}else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+					httpResponseMessage = await httpClient.GetAsync(linux64Url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 				}
 				else {
 					throw new Exception("Unsupported Operating System");
@@ -43,12 +46,16 @@ namespace Nsharp.Commands {
 				using var inputStream = await httpResponseMessage.Content.ReadAsStreamAsync();
 
 
-				FileInfo file = null;
 				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-					file = new FileInfo($"{AppContext.BaseDirectory}tmp/cmake.zip");
+					this.fileInfo = new FileInfo($"{AppContext.BaseDirectory}tmp/cmake.zip");
+				}else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+					this.fileInfo = new FileInfo($"{AppContext.BaseDirectory}tmp/cmake.tar.gz");
 				}
-				file.Directory.Create();
-				using var outputFile = file.Create();
+				else {
+					throw new Exception("Unsupported Operating System");
+				}
+				this.fileInfo.Directory.Create();
+				using var outputFile = this.fileInfo.Create();
 				await inputStream.CopyToAsync(outputFile, cancellationToken);
 
 				return 0;
