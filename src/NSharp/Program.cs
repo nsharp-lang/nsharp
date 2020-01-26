@@ -7,6 +7,7 @@ namespace Nsharp {
 	public class Program {
 
 		public static async Task<int> Main(string[] args) {
+			args = new string[] { "restore" };
 			var nsharpRootCommand = new NsharpRootCommand {
 			};
 			return await nsharpRootCommand.InvokeAsync(args);
