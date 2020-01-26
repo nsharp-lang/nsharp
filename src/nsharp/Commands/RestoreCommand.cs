@@ -2,6 +2,8 @@ using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -21,7 +23,7 @@ namespace Nsharp.Commands {
 
 		private async Task<int> SetupCmake(CancellationToken cancellationToken = default) {
 			var cmakeSetup = new CmakeSetup();
-			var downloadResult = await cmakeSetup.DownloadCmakeAsync(cancellationToken);
+			var result = await cmakeSetup.SetupWindows64(cancellationToken);
 			return 0;
 		}
 
@@ -31,7 +33,22 @@ namespace Nsharp.Commands {
 			private readonly Uri linux64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-Linux-x86_64.tar.gz");
 			private readonly Uri windows64Url = new Uri("https://github.com/Kitware/CMake/releases/download/v3.16.3/cmake-3.16.3-win64-x64.zip");
 
-			public async Task<int> DownloadCmakeAsync(CancellationToken cancellationToken = default) {
+			public async Task<int> SetupWindows64(CancellationToken cancellationToken = default) {
+				using var httpClient = new HttpClient();
+				using var httpResponseMessage = await httpClient.GetAsync(windows64Url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+				if (!httpResponseMessage.IsSuccessStatusCode) { return -1; }
+				using var inputStream = await httpResponseMessage.Content.ReadAsStreamAsync();
+				using var zipArchive = new ZipArchive(inputStream);
+				var zipArchiveEntry = zipArchive.Entries.First(w => w.Name == "cmake.exe");
+				using var cmakeInputStream = zipArchiveEntry.Open();
+				var fileInfo = new FileInfo($"{AppContext.BaseDirectory}cmake/cmake.exe");
+				fileInfo.Directory.Create();
+				using var cmakeOutputStream = fileInfo.OpenWrite();
+				await cmakeInputStream.CopyToAsync(cmakeOutputStream, cancellationToken);
+				return 0;
+			}
+
+			public async Task<int> DownloadAsync(CancellationToken cancellationToken = default) {
 				using var httpClient = new HttpClient();
 				HttpResponseMessage httpResponseMessage = null;
 				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
@@ -59,6 +76,12 @@ namespace Nsharp.Commands {
 				await inputStream.CopyToAsync(outputFile, cancellationToken);
 
 				return 0;
+			}
+
+			public async Task<int> ExtractAsync(CancellationToken cancellationToken = default) {
+				using var zipArchive = new ZipArchive(this.fileInfo.Open(FileMode.Open), ZipArchiveMode.Read);
+				zipArchive.ExtractToDirectory($"{AppContext.BaseDirectory}tmp/cmake-source/");
+				return await Task.FromResult(0);
 			}
 
 		}
