@@ -4,20 +4,4 @@
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 	
-	<Target Name="DownloadLlvm">
-		<DownloadFile DestinationFolder="./bin/" SourceUrl="$(LlvmUrl)" />
-	</Target>
-	
-	<Target Name="GitLlvm" AfterTargets="Restore">
-		<MakeDir Directories="./bin/" />
-		<Exec Condition="!Exists('./bin/llvm-project/')" Command="git clone https://github.com/llvm/llvm-project.git" WorkingDirectory="./bin/" />
-		<Exec Command="git checkout llvmorg-9.0.0" WorkingDirectory="./bin/llvm-project/" />
-	</Target>
-	
-	<Target Name="BuildLlvm" BeforeTargets="BeforeBuild">
-		<MakeDir Directories="./bin/build/" />
-		<Exec Command="cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(MSBuildProjectDirectory)/bin/install/ -DLLVM_ENABLE_PROJECTS='clang;lld;lldb' ../llvm-project/llvm/" WorkingDirectory="./bin/build/" />
-		<Exec Command="cmake --build ./ --parallel $(MSBuildNodeCount) --target install" WorkingDirectory="./bin/build/" />
-	</Target>
-
 </Project>

@@ -1,10 +1,10 @@
 using System.CommandLine;
 
-namespace NSharp.Commands {
+namespace Nsharp.Commands {
 
-	public class NSharpRootCommand : RootCommand{
+	public class NsharpRootCommand : RootCommand {
 
-		public NSharpRootCommand() {
+		public NsharpRootCommand() {
 			this.AddCommand(new RestoreCommand());
 			this.AddCommand(new BuildCommand());
 		}

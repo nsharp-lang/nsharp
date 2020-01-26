@@ -1,17 +1,17 @@
-﻿using System.CommandLine.Invocation;
+using System.CommandLine;
 using System.Threading.Tasks;
-using NSharp.Commands;
+using Nsharp.Commands;
 
-namespace NSharp {
+namespace Nsharp {
 
-    public class Program{
+	public class Program {
 
-        public static async Task<int> Main(string[] args){
-            var nSharpRootCommand = new NSharpRootCommand {
-            };
-            return await nSharpRootCommand.InvokeAsync(args);
-        }
+		public static async Task<int> Main(string[] args) {
+			var nsharpRootCommand = new NSharpRootCommand {
+			};
+			return await nsharpRootCommand.InvokeAsync(args);
+		}
 
-    }
+	}
 
 }

@@ -1,6 +1,6 @@
 using System.CommandLine;
 
-namespace NSharp.Commands {
+namespace Nsharp.Commands {
 
 	public class BuildCommand : Command{
 

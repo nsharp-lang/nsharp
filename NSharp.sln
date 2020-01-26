@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSharp", "src\NSharp\NSharp.csproj", "{F3C8C0EF-34EB-414D-A4CD-BB78E5B9EDBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nsharp", "src\NSharp\nsharp.csproj", "{F3C8C0EF-34EB-414D-A4CD-BB78E5B9EDBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSharp.LLVM", "src\NSharp.LLVM\NSharp.LLVM.csproj", "{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSharp.LLVM", "src\NSharp.LLVM\NSharp.LLVM.csproj", "{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F3C8C0EF-34EB-414D-A4CD-BB78E5B9EDBC} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
-		{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F3C8C0EF-34EB-414D-A4CD-BB78E5B9EDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -50,5 +43,15 @@ Global
 		{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}.Release|x64.Build.0 = Release|Any CPU
 		{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3C8C0EF-34EB-414D-A4CD-BB78E5B9EDBC} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
+		{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A811E5C-A587-4C02-8B83-C4770509C8C4}
 	EndGlobalSection
 EndGlobal
