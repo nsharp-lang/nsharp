@@ -1,17 +1,11 @@
 using System.CommandLine;
-using System.CommandLine.Invocation;
-using System.Threading.Tasks;
 
 namespace Nsharp.Commands {
 
-	public class ToolchainCommand : Command, ICommandHandler {
+	public class ToolchainCommand : Command {
 
 		public ToolchainCommand() : base("toolchain") {
-			this.Handler = this;
-		}
-
-		public Task<int> InvokeAsync(InvocationContext context) {
-			throw new System.NotImplementedException();
+			this.AddCommand(new ToolchainUpdateCommand());
 		}
 
 	}
