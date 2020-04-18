@@ -12,7 +12,7 @@ jobs:
     - uses: actions/cache@v1
       with:
         key: ${{ matrix.os }}-nuget
-        path: ${{ github.workspace }}/.nuget/packages
+        path: ~/.nuget/packages
     - run: dotnet tool restore
     #- run: dotnet format --check --dry-run  
     - run: dotnet clean
