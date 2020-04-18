@@ -5,12 +5,13 @@ jobs:
     name: Check-Build-Test
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v2.1
+    - uses: actions/setup-dotnet@v1.40
       with:
-        dotnet-version: '3.1.100'
+        dotnet-version: "3.1.201"
     - run: dotnet tool restore
     #- run: dotnet format --check --dry-run  
+    - run: dotnet clean
     - run: dotnet restore
     - run: dotnet build
     - run: dotnet test
