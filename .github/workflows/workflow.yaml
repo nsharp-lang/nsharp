@@ -5,8 +5,8 @@ jobs:
     name: Check-Build-Test
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2.1
-    - uses: actions/setup-dotnet@v1.40
+    - uses: actions/checkout@v2.1.0
+    - uses: actions/setup-dotnet@v1.4.0
       with:
         dotnet-version: "3.1.201"
     - run: dotnet tool restore
