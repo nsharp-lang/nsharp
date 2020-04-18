@@ -1,0 +1,11 @@
+<Project>
+
+	<Import Project="../nsharp.props" />
+
+	<PropertyGroup>
+		<LangVersion>8</LangVersion>
+		<Nullable>annotations</Nullable>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+</Project>

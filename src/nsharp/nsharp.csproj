@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<Import Project="../src.props" />
+
 	<PropertyGroup>
-		<LangVersion>8</LangVersion>
-		<Nullable>annotations</Nullable>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Nsharp</RootNamespace>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
 	<ItemGroup>

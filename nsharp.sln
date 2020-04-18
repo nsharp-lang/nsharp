@@ -4,14 +4,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}"
+	ProjectSection(SolutionItems) = preProject
+		src\src.props = src\src.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSharp.LLVM", "src\NSharp.LLVM\NSharp.LLVM.csproj", "{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nsharp", "src\nsharp\nsharp.csproj", "{FE7355E4-1AD9-48C1-A290-75F03817E4F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{02A46024-FA17-4D32-AFF7-6FA210071CA7}"
+	ProjectSection(SolutionItems) = preProject
+		tests\tests.props = tests\tests.props
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Tests", "tests\Nsharp.Tests\Nsharp.Tests.csproj", "{07C088E5-D0F0-4565-B1EF-258FFDDDA4B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD1D123D-45FA-4237-8954-DF75B82AC001}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		dotnet-tools.json = dotnet-tools.json
+		LICENSE.txt = LICENSE.txt
+		nsharp.props = nsharp.props
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
