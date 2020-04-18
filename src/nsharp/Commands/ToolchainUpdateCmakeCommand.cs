@@ -46,9 +46,9 @@ namespace Nsharp.Commands {
 			using var zipArchive = new ZipArchive(stream, ZipArchiveMode.Read);
 			sourceDirectoryInfo.Create();
 			var firstEntryFullName = zipArchive.Entries.FirstOrDefault().FullName;
-			foreach(var entry in zipArchive.Entries.Skip(1)) {
+			foreach (var entry in zipArchive.Entries.Skip(1)) {
 				var correctName = entry.FullName.Remove(0, firstEntryFullName.Length);
-				var fileOrDirectoryPath =this.sourceDirectoryInfo.FullName + correctName;
+				var fileOrDirectoryPath = this.sourceDirectoryInfo.FullName + correctName;
 				if (fileOrDirectoryPath.EndsWith('/')) {
 					Directory.CreateDirectory(fileOrDirectoryPath);
 				}

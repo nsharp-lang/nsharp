@@ -7,7 +7,7 @@ namespace Nsharp {
 	public class Program {
 
 		public static async Task<int> Main(string[] args) {
-			args = new string[] { "toolchain", "update", "cmake" };
+			args = new string[] { "toolchain", "update", "llvm" };
 			var nsharpRootCommand = new NsharpRootCommand {
 			};
 			return await nsharpRootCommand.InvokeAsync(args);

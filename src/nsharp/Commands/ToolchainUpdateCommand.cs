@@ -10,6 +10,7 @@ namespace Nsharp.Commands {
 		public ToolchainUpdateCommand() : base("update") {
 			this.Handler = this;
 			this.AddCommand(new ToolchainUpdateCmakeCommand());
+			this.AddCommand(new ToolchainUpdateLlvmCommand());
 		}
 
 		public Task<int> InvokeAsync(InvocationContext context) {
