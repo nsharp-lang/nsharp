@@ -23,9 +23,7 @@ namespace Nsharp.Commands {
 		}
 
 		public async Task<int> InvokeAsync(InvocationContext context) {
-			var cancellationToken = context.GetCancellationToken();
-
-			var downloadResult = await this.DownloadAsync(cancellationToken);
+			var downloadResult = this.Download();
 			if (downloadResult != 0) { return downloadResult; }
 
 			var configureResult = this.Configure();
@@ -34,17 +32,15 @@ namespace Nsharp.Commands {
 			var buildResult = this.Build();
 			if (buildResult != 0) { return buildResult; }
 
-			return 0;
+			return await Task.FromResult(0);
 		}
 
-		private async Task<int> DownloadAsync(CancellationToken cancellationToken = default) {
+		private int Download() {
 			if (LibGit2Sharp.Repository.IsValid(sourceDirectoryInfo.FullName)) {
 
 			}
 			else {
-				await Task.Run(() => {
-					LibGit2Sharp.Repository.Clone(this.gitUri.ToString(), this.sourceDirectoryInfo.FullName);
-				});
+				LibGit2Sharp.Repository.Clone(this.gitUri.ToString(), this.sourceDirectoryInfo.FullName);
 			}
 
 			using var repository = new LibGit2Sharp.Repository(this.sourceDirectoryInfo.FullName);
