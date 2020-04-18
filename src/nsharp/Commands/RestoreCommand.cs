@@ -53,7 +53,8 @@ namespace Nsharp.Commands {
 				HttpResponseMessage httpResponseMessage = null;
 				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
 					httpResponseMessage = await httpClient.GetAsync(windows64Url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
-				}else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+				}
+				else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
 					httpResponseMessage = await httpClient.GetAsync(linux64Url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 				}
 				else {
@@ -65,7 +66,8 @@ namespace Nsharp.Commands {
 
 				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
 					this.fileInfo = new FileInfo($"{AppContext.BaseDirectory}tmp/cmake.zip");
-				}else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+				}
+				else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
 					this.fileInfo = new FileInfo($"{AppContext.BaseDirectory}tmp/cmake.tar.gz");
 				}
 				else {
