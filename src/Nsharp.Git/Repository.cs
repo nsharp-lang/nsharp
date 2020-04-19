@@ -26,14 +26,10 @@ namespace Nsharp.Git {
 			return process.ExitCode == 0;
 		}
 
-		public bool Fetch(uint depth = 1, bool progress = true, bool prune=true, bool recurseModules = true) {
+		public bool Fetch() {
 			var processStartInfo = new ProcessStartInfo {
 				ArgumentList = {
-					"fetch",
-					$"--depth={depth}",
-					"--progress",
-					"--prune",
-					"--recurse-submodules=yes"
+					"fetch"
 				},
 				FileName = "git",
 				WorkingDirectory = this.Path.FullName
