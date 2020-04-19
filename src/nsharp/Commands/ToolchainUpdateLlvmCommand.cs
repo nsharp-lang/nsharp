@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Nsharp.Database;
+using Nsharp.Git;
 
 namespace Nsharp.Commands {
 
@@ -36,16 +37,15 @@ namespace Nsharp.Commands {
 		}
 
 		private int Download() {
-			if (LibGit2Sharp.Repository.IsValid(sourceDirectoryInfo.FullName)) {
+			var repository = new Repository(this.sourceDirectoryInfo);
 
-			}
-			else {
-				LibGit2Sharp.Repository.Clone(this.gitUri.ToString(), this.sourceDirectoryInfo.FullName);
-			}
+			var initResult = repository.Init();
 
-			using var repository = new LibGit2Sharp.Repository(this.sourceDirectoryInfo.FullName);
-			var tag = repository.Tags.FirstOrDefault(x => x.FriendlyName == $"llvmorg-{this.version.Major}.{this.version.Minor}.{this.version.Build}");
-			LibGit2Sharp.Commands.Checkout(repository, tag.Target as LibGit2Sharp.Commit);
+			var remoteAddResult = repository.RemoteAdd("https://github.com/llvm/llvm-project.git");
+
+			var fetchResult = repository.Fetch();
+
+			var checkoutResult = repository.Checkout($"llvmorg-{this.version.Major}.{this.version.Minor}.{this.version.Build}");
 
 			return 0;
 		}
