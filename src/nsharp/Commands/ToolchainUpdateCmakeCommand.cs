@@ -43,7 +43,6 @@ namespace Nsharp.Commands {
 					"--build", $"{this.buildDirectoryInfo.FullName}",
 					"--config", "Release",
 					"--parallel", $"{Environment.ProcessorCount}",
-					"--target", "cmake",
 				},
 				FileName = "cmake"
 			};
@@ -71,7 +70,6 @@ namespace Nsharp.Commands {
 			var processStartInfo = new ProcessStartInfo {
 				ArgumentList = {
 					"--install", $"{this.buildDirectoryInfo.FullName}",
-					"--component", "cmake",
 					"--prefix", $"{this.installDirectoryInfo.FullName}",
 				},
 				FileName = "cmake"
