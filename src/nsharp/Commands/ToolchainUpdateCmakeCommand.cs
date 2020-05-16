@@ -13,9 +13,9 @@ namespace Nsharp.Commands {
 	public class ToolchainUpdateCmakeCommand : Command, ICommandHandler {
 
 		private readonly NsharpDbContext nsharpDbContext = new NsharpDbContext();
-		private readonly Version Version = new Version(3, 17, 1);
-		private readonly DirectoryInfo buildDirectoryInfo = new DirectoryInfo($"{Path.GetTempPath()}nsharp/cmake/build/");
-		private readonly DirectoryInfo sourceDirectoryInfo = new DirectoryInfo($"{Path.GetTempPath()}nsharp/cmake/source/");
+		private readonly Version Version = new Version(3, 17, 2);
+		private readonly DirectoryInfo buildDirectoryInfo = new DirectoryInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.nsharp/toolchain/cmake/build/");
+		private readonly DirectoryInfo sourceDirectoryInfo = new DirectoryInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.nsharp/toolchain/cmake/source/");
 
 		public ToolchainUpdateCmakeCommand() : base("cmake") {
 			this.Handler = this;
@@ -43,13 +43,17 @@ namespace Nsharp.Commands {
 			var tagCommit = tag.PeeledTarget as LibGit2Sharp.Commit;
 			LibGit2Sharp.Commands.Checkout(repository, tagCommit);
 			repository.Reset(LibGit2Sharp.ResetMode.Hard, tagCommit);
-			return 0;
+			return await Task.FromResult(0);
 		}
 
 		private int Configure() {
 			this.buildDirectoryInfo.Create();
 			var processStartInfo = new ProcessStartInfo {
-				Arguments = $"-DCMAKE_BUILD_TYPE=Release -S {this.sourceDirectoryInfo.FullName} -B {this.buildDirectoryInfo.FullName}",
+				ArgumentList = {
+					"-DCMAKE_BUILD_TYPE=Release",
+					"-B", $"{this.buildDirectoryInfo.FullName}",
+					"-S", $"{this.sourceDirectoryInfo.FullName}",
+				},
 				FileName = "cmake"
 			};
 			var process = System.Diagnostics.Process.Start(processStartInfo);
