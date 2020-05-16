@@ -3,9 +3,7 @@ using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Nsharp.Database;
@@ -36,27 +34,15 @@ namespace Nsharp.Commands {
 		}
 
 		private async Task<int> DownloadAsync(CancellationToken cancellationToken = default) {
-			using var httpClient = new HttpClient();
-			using var httpResponseMessage = await httpClient.GetAsync($"https://github.com/Kitware/CMake/archive/v{this.Version.Major}.{this.Version.Minor}.{this.Version.Build}.zip", HttpCompletionOption.ResponseHeadersRead, cancellationToken);
-			if (!httpResponseMessage.IsSuccessStatusCode) { return -1; }
-
-			var filename = httpResponseMessage.Content.Headers.ContentDisposition.FileName;
-			await using var stream = await httpResponseMessage.Content.ReadAsStreamAsync();
-
-			using var zipArchive = new ZipArchive(stream, ZipArchiveMode.Read);
-			sourceDirectoryInfo.Create();
-			var firstEntryFullName = zipArchive.Entries.FirstOrDefault().FullName;
-			foreach (var entry in zipArchive.Entries.Skip(1)) {
-				var correctName = entry.FullName.Remove(0, firstEntryFullName.Length);
-				var fileOrDirectoryPath = this.sourceDirectoryInfo.FullName + correctName;
-				if (fileOrDirectoryPath.EndsWith('/')) {
-					Directory.CreateDirectory(fileOrDirectoryPath);
-				}
-				else {
-					entry.ExtractToFile(fileOrDirectoryPath, true);
-				}
-			}
-
+			var gitPath = LibGit2Sharp.Repository.Init(this.sourceDirectoryInfo.FullName);
+			using var repository = new LibGit2Sharp.Repository(gitPath, new LibGit2Sharp.RepositoryOptions { });
+			using var remote = repository.Network.Remotes["origin"]
+				?? repository.Network.Remotes.Add("origin", "https://github.com/Kitware/CMake.git");
+			LibGit2Sharp.Commands.Fetch(repository, "origin", remote.FetchRefSpecs.Select(x => x.Specification), new LibGit2Sharp.FetchOptions { }, null);
+			var tag = repository.Tags.FirstOrDefault(x => x.FriendlyName == $"v{this.Version.Major}.{this.Version.Minor}.{this.Version.Build}");
+			var tagCommit = tag.PeeledTarget as LibGit2Sharp.Commit;
+			LibGit2Sharp.Commands.Checkout(repository, tagCommit);
+			repository.Reset(LibGit2Sharp.ResetMode.Hard, tagCommit);
 			return 0;
 		}
 
