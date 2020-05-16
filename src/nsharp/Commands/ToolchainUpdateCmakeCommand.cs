@@ -55,7 +55,7 @@ namespace Nsharp.Commands {
 			this.buildDirectoryInfo.Create();
 			var processStartInfo = new ProcessStartInfo {
 				ArgumentList = {
-					//"-DCMAKE_BUILD_TYPE=Release",
+					"-DCMAKE_BUILD_TYPE=Release",
 					"-B", $"{this.buildDirectoryInfo.FullName}",
 					"-S", $"{this.sourceDirectoryInfo.FullName}",
 				},
