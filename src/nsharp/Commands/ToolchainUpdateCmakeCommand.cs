@@ -4,7 +4,6 @@ using System.CommandLine.Invocation;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Nsharp.Database;
 
@@ -15,6 +14,7 @@ namespace Nsharp.Commands {
 		private readonly NsharpDbContext nsharpDbContext = new NsharpDbContext();
 		private readonly Version Version = new Version(3, 17, 2);
 		private readonly DirectoryInfo buildDirectoryInfo = new DirectoryInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.nsharp/toolchain/cmake/build/");
+		private readonly DirectoryInfo installDirectoryInfo = new DirectoryInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.nsharp/toolchain/cmake/install/");
 		private readonly DirectoryInfo sourceDirectoryInfo = new DirectoryInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.nsharp/toolchain/cmake/source/");
 
 		public ToolchainUpdateCmakeCommand() : base("cmake") {
@@ -22,18 +22,66 @@ namespace Nsharp.Commands {
 		}
 
 		public async Task<int> InvokeAsync(InvocationContext context) {
-			var cancellationToken = context.GetCancellationToken();
-
-			var downloadResult = await this.DownloadAsync(cancellationToken);
-			if (downloadResult != 0) { return downloadResult; }
+			var sourceResult = this.Source();
+			if (sourceResult != 0) { return sourceResult; }
 
 			var configureResult = this.Configure();
 			if (configureResult != 0) { return configureResult; }
 
+			var buildResult = this.Build();
+			if (buildResult != 0) { return buildResult; }
+
+			var installResult = this.Install();
+			if (installResult != 0) { return installResult; }
+
 			return 0;
 		}
 
-		private async Task<int> DownloadAsync(CancellationToken cancellationToken = default) {
+		private int Build() {
+			var processStartInfo = new ProcessStartInfo {
+				ArgumentList = {
+					"--build", $"{this.buildDirectoryInfo.FullName}",
+					"--config", "Release",
+					"--parallel", $"{Environment.ProcessorCount}",
+					"--target", "cmake",
+				},
+				FileName = "cmake"
+			};
+			var process = System.Diagnostics.Process.Start(processStartInfo);
+			process.WaitForExit();
+			return process.ExitCode;
+		}
+
+		private int Configure() {
+			this.buildDirectoryInfo.Create();
+			var processStartInfo = new ProcessStartInfo {
+				ArgumentList = {
+					//"-DCMAKE_BUILD_TYPE=Release",
+					"-B", $"{this.buildDirectoryInfo.FullName}",
+					"-S", $"{this.sourceDirectoryInfo.FullName}",
+				},
+				FileName = "cmake"
+			};
+			var process = System.Diagnostics.Process.Start(processStartInfo);
+			process.WaitForExit();
+			return process.ExitCode;
+		}
+
+		private int Install() {
+			var processStartInfo = new ProcessStartInfo {
+				ArgumentList = {
+					"--install", $"{this.buildDirectoryInfo.FullName}",
+					"--component", "cmake",
+					"--prefix", $"{this.installDirectoryInfo.FullName}",
+				},
+				FileName = "cmake"
+			};
+			var process = System.Diagnostics.Process.Start(processStartInfo);
+			process.WaitForExit();
+			return process.ExitCode;
+		}
+
+		private int Source() {
 			var gitPath = LibGit2Sharp.Repository.Init(this.sourceDirectoryInfo.FullName);
 			using var repository = new LibGit2Sharp.Repository(gitPath, new LibGit2Sharp.RepositoryOptions { });
 			using var remote = repository.Network.Remotes["origin"]
@@ -43,22 +91,7 @@ namespace Nsharp.Commands {
 			var tagCommit = tag.PeeledTarget as LibGit2Sharp.Commit;
 			LibGit2Sharp.Commands.Checkout(repository, tagCommit);
 			repository.Reset(LibGit2Sharp.ResetMode.Hard, tagCommit);
-			return await Task.FromResult(0);
-		}
-
-		private int Configure() {
-			this.buildDirectoryInfo.Create();
-			var processStartInfo = new ProcessStartInfo {
-				ArgumentList = {
-					"-DCMAKE_BUILD_TYPE=Release",
-					"-B", $"{this.buildDirectoryInfo.FullName}",
-					"-S", $"{this.sourceDirectoryInfo.FullName}",
-				},
-				FileName = "cmake"
-			};
-			var process = System.Diagnostics.Process.Start(processStartInfo);
-			process.WaitForExit();
-			return process.ExitCode;
+			return 0;
 		}
 
 	}
