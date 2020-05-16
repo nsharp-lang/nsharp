@@ -2,7 +2,7 @@
 ![Main workflow](https://github.com/nsharp-lang/nsharp/workflows/Main%20workflow/badge.svg)
 
 ## Requirements
-* cmake - v3.10.2
+* cmake - v3.17.1
 
 ### Linux
 * gcc - v7.5.0
