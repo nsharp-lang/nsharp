@@ -53,26 +53,13 @@ namespace Nsharp.Commands {
 		}
 
 		private int Configure() {
-			/*
 			var cmakeConfigureOptions = new CmakeConfigureOptions {
 				BuildDirectory = this.buildDirectoryInfo,
-				SourceDirectory= this.sourceDirectoryInfo
+				BuildType = "Release",
+				SourceDirectory = this.sourceDirectoryInfo
 			};
 			CmakeCommands.Configure(cmakeConfigureOptions);
-			*/
-
-			this.buildDirectoryInfo.Create();
-			var processStartInfo = new ProcessStartInfo {
-				ArgumentList = {
-					"-DCMAKE_BUILD_TYPE=Release",
-					"-B", $"{this.buildDirectoryInfo.FullName}",
-					"-S", $"{this.sourceDirectoryInfo.FullName}",
-				},
-				FileName = "cmake"
-			};
-			var process = System.Diagnostics.Process.Start(processStartInfo);
-			process.WaitForExit();
-			return process.ExitCode;
+			return 0;
 		}
 
 		private int Install() {

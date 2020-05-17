@@ -6,6 +6,8 @@ namespace Nsharp.Cmake {
 
 		public DirectoryInfo BuildDirectory { get; set; }
 
+		public string? BuildType { get; set; }
+
 		public DirectoryInfo SourceDirectory { get; set; }
 
 	}

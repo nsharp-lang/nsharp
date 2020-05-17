@@ -2,7 +2,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Nsharp.Cmake {
 
@@ -21,7 +20,8 @@ namespace Nsharp.Cmake {
 			var processStartInfo = new ProcessStartInfo {
 				ArgumentList = {
 					"-B", options.BuildDirectory.FullName,
-					"-S", options.SourceDirectory.FullName
+					"-S", options.SourceDirectory.FullName,
+					options.BuildType != null ? $"-DCMAKE_BUILD_TYPE={options.BuildType}" : "",
 				},
 				FileName = CmakePath.FullName,
 			};
