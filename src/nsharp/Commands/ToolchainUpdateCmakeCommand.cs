@@ -58,16 +58,12 @@ namespace Nsharp.Commands {
 		}
 
 		private int Install() {
-			var processStartInfo = new ProcessStartInfo {
-				ArgumentList = {
-					"--install", $"{this.buildDirectoryInfo.FullName}",
-					"--prefix", $"{this.installDirectoryInfo.FullName}",
-				},
-				FileName = "cmake"
+			var cmakeInstallOptions = new CmakeInstallOptions {
+				BuildDirectory = this.buildDirectoryInfo,
+				Prefix = this.installDirectoryInfo
 			};
-			var process = System.Diagnostics.Process.Start(processStartInfo);
-			process.WaitForExit();
-			return process.ExitCode;
+			CmakeCommands.Install(cmakeInstallOptions);
+			return 0;
 		}
 
 		private int Source() {
