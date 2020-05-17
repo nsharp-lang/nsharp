@@ -24,7 +24,7 @@ namespace Nsharp.SetupCmake {
 			CmakeCommands.Build(new CmakeBuildOptions {
 				BuildDirectory = BuildDirectoryInfo,
 				Config = "Release",
-				Parallel = (uint) Environment.ProcessorCount,
+				Parallel = (uint)Environment.ProcessorCount,
 			});
 		}
 

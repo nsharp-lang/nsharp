@@ -10,6 +10,8 @@ namespace Nsharp.Cmake {
 
 		public string? Generator { get; set; }
 
+		public string? MakeProgram { get; set; }
+
 		public DirectoryInfo SourceDirectory { get; set; }
 
 	}

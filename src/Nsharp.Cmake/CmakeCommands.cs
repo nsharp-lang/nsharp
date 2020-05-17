@@ -32,6 +32,7 @@ namespace Nsharp.Cmake {
 				options.Generator != null ? $"-G \"{options.Generator}\"" : null,
 				$"-S {options.SourceDirectory.FullName}",
 				options.BuildType != null ? $"-DCMAKE_BUILD_TYPE={options.BuildType}" : null,
+				options.MakeProgram != null ? $"-DCMAKE_MAKE_PROGRAM={options.MakeProgram}" : null,
 			}.Where(x => x != null);
 
 			var processStartInfo = new ProcessStartInfo {
@@ -55,7 +56,7 @@ namespace Nsharp.Cmake {
 			};
 			using var process = Process.Start(processStartInfo);
 			process.WaitForExit();
-			if(process.ExitCode != 0) { throw new CmakeException(process.ExitCode); }
+			if (process.ExitCode != 0) { throw new CmakeException(process.ExitCode); }
 		}
 
 		private static FileInfo GetCmakePath() {

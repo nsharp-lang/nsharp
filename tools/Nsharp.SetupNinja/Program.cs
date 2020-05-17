@@ -24,7 +24,7 @@ namespace Nsharp.SetupNinja {
 			CmakeCommands.Build(new CmakeBuildOptions {
 				BuildDirectory = BuildDirectoryInfo,
 				Config = "Release",
-				Parallel = (uint) Environment.ProcessorCount,
+				Parallel = (uint)Environment.ProcessorCount,
 			});
 		}
 
@@ -33,6 +33,7 @@ namespace Nsharp.SetupNinja {
 				BuildDirectory = BuildDirectoryInfo,
 				BuildType = "Release",
 				Generator = "Ninja",
+				MakeProgram =
 				SourceDirectory = SourceDirectoryInfo
 			});
 		}
