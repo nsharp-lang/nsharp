@@ -11,6 +11,12 @@ namespace Nsharp.Cmake {
 
 		public static void Build(CmakeBuildOptions options) {
 			var processStartInfo = new ProcessStartInfo {
+				ArgumentList = {
+					"--build", options.BuildDirectory.FullName,
+					options.Config != null ? $"--config {options.Config}" : "",
+					options.Parallel != null ? $"--parallel {options.Parallel}" : "",
+				},
+				FileName = CmakePath.FullName,
 			};
 			using var process = Process.Start(processStartInfo);
 			process.WaitForExit();

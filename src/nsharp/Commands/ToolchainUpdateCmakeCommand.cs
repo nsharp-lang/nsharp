@@ -39,17 +39,12 @@ namespace Nsharp.Commands {
 		}
 
 		private int Build() {
-			var processStartInfo = new ProcessStartInfo {
-				ArgumentList = {
-					"--build", $"{this.buildDirectoryInfo.FullName}",
-					"--config", "Release",
-					"--parallel", $"{Environment.ProcessorCount}",
-				},
-				FileName = "cmake"
+			var cmakeBuildOptions = new CmakeBuildOptions {
+				BuildDirectory = this.buildDirectoryInfo,
+				Config = "Release"
 			};
-			var process = System.Diagnostics.Process.Start(processStartInfo);
-			process.WaitForExit();
-			return process.ExitCode;
+			CmakeCommands.Build(cmakeBuildOptions);
+			return 0;
 		}
 
 		private int Configure() {
