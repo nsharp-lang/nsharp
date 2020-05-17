@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content CopyToOutputDirectory="PreserveNewest" Include="tools/linux-x64/cmake" Pack="true" PackagePath="tools/linux-x64/cmake" />
-		<Content CopyToOutputDirectory="PreserveNewest" Include="tools/win-x64/cmake.exe" Pack="true" PackagePath="tools/win-x64/cmake.exe" />
+		<Content CopyToOutputDirectory="PreserveNewest" Include="tools/linux-x64/cmake" Pack="true" PackagePath="tools/linux-x64/" />
+		<Content CopyToOutputDirectory="PreserveNewest" Include="tools/win-x64/cmake.exe" Pack="true" PackagePath="tools/win-x64/" />
 	</ItemGroup>
 
 </Project>

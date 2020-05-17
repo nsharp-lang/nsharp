@@ -17,6 +17,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Nsharp.Cmake\Nsharp.Cmake.csproj" />
 	  <ProjectReference Include="..\Nsharp.Git\Nsharp.Git.csproj" />
+	  <ProjectReference Include="..\Nsharp.Ninja\Nsharp.Ninja.csproj" />
 	</ItemGroup>
 
 </Project>
