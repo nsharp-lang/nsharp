@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Nsharp.Cmake;
+using Nsharp.Ninja;
 
 namespace Nsharp.SetupCmake {
 
@@ -32,6 +33,8 @@ namespace Nsharp.SetupCmake {
 			CmakeCommands.Configure(new CmakeConfigureOptions {
 				BuildDirectory = BuildDirectoryInfo,
 				BuildType = "Release",
+				Generator = "Ninja",
+				MakeProgram = NinjaCommands.NinjaPath,
 				SourceDirectory = SourceDirectoryInfo
 			});
 		}
