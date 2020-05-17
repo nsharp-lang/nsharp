@@ -32,6 +32,7 @@ namespace Nsharp.SetupNinja {
 			CmakeCommands.Configure(new CmakeConfigureOptions {
 				BuildDirectory = BuildDirectoryInfo,
 				BuildType = "Release",
+				Generator = "Ninja",
 				SourceDirectory = SourceDirectoryInfo
 			});
 		}
