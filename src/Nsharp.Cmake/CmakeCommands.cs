@@ -37,10 +37,10 @@ namespace Nsharp.Cmake {
 
 		private static FileInfo GetCmakePath() {
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) && RuntimeInformation.ProcessArchitecture == Architecture.X64) {
-				return new FileInfo($"{AppContext.BaseDirectory}tools/linux-x64/cmake");
+				return new FileInfo($"{AppContext.BaseDirectory}tools/linux-x64/bin/cmake");
 			}
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && RuntimeInformation.ProcessArchitecture == Architecture.X64) {
-				return new FileInfo($"{AppContext.BaseDirectory}tools/win-x64/cmake.exe");
+				return new FileInfo($"{AppContext.BaseDirectory}tools/win-x64/bin/cmake.exe");
 			}
 			throw new NotSupportedException();
 		}
