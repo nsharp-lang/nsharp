@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="../src.props" />
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Nsharp.Cmake.runtime.win-x64\Nsharp.Cmake.runtime.win-x64.csproj" />
+		<Content CopyToOutputDirectory="PreserveNewest" Include="tools/win-x64/cmake.exe" Pack="true" PackagePath="tools/win-x64/cmake.exe" />
 	</ItemGroup>
 
 </Project>
