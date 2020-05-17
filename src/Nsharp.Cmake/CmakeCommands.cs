@@ -29,6 +29,7 @@ namespace Nsharp.Cmake {
 		public static void Configure(CmakeConfigureOptions options) {
 			var arguments = new string[] {
 				$"-B {options.BuildDirectory.FullName}",
+				options.Generator != null ? $"-G {options.Generator}" : null,
 				$"-S {options.SourceDirectory.FullName}",
 				options.BuildType != null ? $"-DCMAKE_BUILD_TYPE={options.BuildType}" : null,
 			}.Where(x => x != null);

@@ -8,6 +8,8 @@ namespace Nsharp.Cmake {
 
 		public string? BuildType { get; set; }
 
+		public string? Generator { get; set; }
+
 		public DirectoryInfo SourceDirectory { get; set; }
 
 	}
