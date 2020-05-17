@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Nsharp.Cmake;
 using Nsharp.Database;
 
 namespace Nsharp.Commands {
@@ -52,6 +53,14 @@ namespace Nsharp.Commands {
 		}
 
 		private int Configure() {
+			/*
+			var cmakeConfigureOptions = new CmakeConfigureOptions {
+				BuildDirectory = this.buildDirectoryInfo,
+				SourceDirectory= this.sourceDirectoryInfo
+			};
+			CmakeCommands.Configure(cmakeConfigureOptions);
+			*/
+
 			this.buildDirectoryInfo.Create();
 			var processStartInfo = new ProcessStartInfo {
 				ArgumentList = {
