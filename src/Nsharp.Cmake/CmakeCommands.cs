@@ -23,6 +23,7 @@ namespace Nsharp.Cmake {
 			};
 			using var process = Process.Start(processStartInfo);
 			process.WaitForExit();
+			if (process.ExitCode != 0) { throw new CmakeException(process.ExitCode); }
 		}
 
 		public static void Configure(CmakeConfigureOptions options) {
@@ -38,6 +39,7 @@ namespace Nsharp.Cmake {
 			};
 			using var process = Process.Start(processStartInfo);
 			process.WaitForExit();
+			if (process.ExitCode != 0) { throw new CmakeException(process.ExitCode); }
 		}
 
 		public static void Install(CmakeInstallOptions options) {
@@ -52,6 +54,7 @@ namespace Nsharp.Cmake {
 			};
 			using var process = Process.Start(processStartInfo);
 			process.WaitForExit();
+			if(process.ExitCode != 0) { throw new CmakeException(process.ExitCode); }
 		}
 
 		private static FileInfo GetCmakePath() {
