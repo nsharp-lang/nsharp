@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Nsharp.Cmake;
+using Nsharp.Ninja;
 
 namespace Nsharp.SetupNinja {
 
@@ -33,7 +34,6 @@ namespace Nsharp.SetupNinja {
 				BuildDirectory = BuildDirectoryInfo,
 				BuildType = "Release",
 				Generator = "Ninja",
-				MakeProgram =
 				SourceDirectory = SourceDirectoryInfo
 			});
 		}

@@ -32,7 +32,7 @@ namespace Nsharp.Cmake {
 				options.Generator != null ? $"-G \"{options.Generator}\"" : null,
 				$"-S {options.SourceDirectory.FullName}",
 				options.BuildType != null ? $"-DCMAKE_BUILD_TYPE={options.BuildType}" : null,
-				options.MakeProgram != null ? $"-DCMAKE_MAKE_PROGRAM={options.MakeProgram}" : null,
+				options.MakeProgram != null ? $"-DCMAKE_MAKE_PROGRAM={options.MakeProgram.FullName}" : null,
 			}.Where(x => x != null);
 
 			var processStartInfo = new ProcessStartInfo {
