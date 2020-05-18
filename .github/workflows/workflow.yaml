@@ -19,6 +19,8 @@ jobs:
     - run: dotnet restore
     - run: dotnet build
     - run: dotnet test
+    - run: dotnet run --project ./tools/Nsharp.SetupCmake/Nsharp.SetupCmake.csproj
+    - run: dotnet run --project ./tools/Nsharp.SetupNinja/Nsharp.SetupNinja.csproj
     strategy:
       matrix:
         os: [ubuntu-18.04, windows-latest]
