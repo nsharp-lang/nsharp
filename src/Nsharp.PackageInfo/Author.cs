@@ -1,7 +1,6 @@
 namespace Nsharp.PackageInfo {
 
-	public class Author
-    {
+	public class Author {
 
 		public string Email { get; set; }
 
