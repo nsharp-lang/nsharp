@@ -2,9 +2,11 @@ namespace Nsharp.PackageInfo {
 
 	public enum Type {
 
-		Executable,
+		Undefined = 0,
 
-		Library,
+		Executable = 1,
+
+		Library = 2,
 	}
 
 }

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Nsharp.PackageInfo {
 
@@ -12,7 +14,7 @@ namespace Nsharp.PackageInfo {
 		public Type Type { get; set; }
 
 		[Required]
-		public Version Version { get; set; }
+		public string Version { get; set; }
 
 	}
 
