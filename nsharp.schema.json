@@ -23,6 +23,24 @@
 			},
 			"type": "array"
 		},
+		"buildOptions": {
+			"description": "The options for the build",
+			"type": "object"
+		},
+		"buildTypes": {
+			"description": "Overrides the configuration for build type",
+			"properties": {
+				"debug": {
+					"description": "Overrides the configuration for debug",
+					"type": "object"
+				},
+				"release": {
+					"description": "Overrides the configuration for release",
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
 		"name": {
 			"description": "The name of the package",
 			"type": "string"
@@ -42,6 +60,7 @@
 	},
 	"required": [
 		"name",
+		"type",
 		"version"
 	],
 	"title": "JSON schema for NSHARP nsharp.json files",
