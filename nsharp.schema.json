@@ -41,15 +41,59 @@
 			},
 			"type": "object"
 		},
-		"dependencies": {},
-		"licence": {},
+		"dependencies": {
+			"description": "",
+			"properties": {
+				"build": {
+					"description": "",
+					"type": "object"
+				},
+				"development": {
+					"description": "",
+					"type": "object"
+				},
+				"runtime": {
+					"description": "",
+					"type": "object"
+				},
+				"system": {
+					"description": "",
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"licence": {
+			"description": "",
+			"properties": {
+				"file": {
+					"description": "",
+					"type": "string"
+				},
+				"type": {
+					"description": "",
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
 		"name": {
 			"description": "The name of the package",
 			"type": "string"
 		},
-		"readme": {},
-		"repository": {},
-		"targets": {},
+		"readme": {
+			"description": "The path to the README.md file",
+			"type": "string"
+		},
+		"repository": {
+			"description": "The Url to the source repository",
+			"format": "uri",
+			"type": "string"
+		},
+		"targets": {
+			"description": "Overrides the configuration for target",
+			"type": "object"
+		},
 		"type": {
 			"description": "The type of the package",
 			"enum": [
