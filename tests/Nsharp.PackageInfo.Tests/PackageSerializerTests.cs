@@ -5,7 +5,7 @@ namespace Nsharp.PackageInfo.Tests {
 	public class PackageSerializerTests {
 
 		[Fact]
-		public void Fact1() {
+		public void DeserializeFact1() {
 			var package = PackageSerializer.Deserialize(@"
 				{
 					""name"": ""fact-1"",
