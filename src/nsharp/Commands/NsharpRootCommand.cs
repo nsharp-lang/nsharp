@@ -7,7 +7,6 @@ namespace Nsharp.Commands {
 		public NsharpRootCommand() {
 			this.AddCommand(new RestoreCommand());
 			this.AddCommand(new BuildCommand());
-			this.AddCommand(new ToolchainCommand());
 		}
 
 	}
