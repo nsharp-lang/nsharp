@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}"
 	ProjectSection(SolutionItems) = preProject
-		src\src.props = src\src.props
+		src\dir.props = src\dir.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSharp.LLVM", "src\NSharp.LLVM\NSharp.LLVM.csproj", "{E67B42B6-EDBD-4A8E-A454-E9A267A4D8BD}"
@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nsharp", "src\nsharp\nsharp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{02A46024-FA17-4D32-AFF7-6FA210071CA7}"
 	ProjectSection(SolutionItems) = preProject
-		tests\tests.props = tests\tests.props
+		tests\dir.props = tests\dir.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Tests", "tests\Nsharp.Tests\Nsharp.Tests.csproj", "{07C088E5-D0F0-4565-B1EF-258FFDDDA4B5}"
@@ -23,9 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		dir.props = dir.props
 		dotnet-tools.json = dotnet-tools.json
 		LICENSE.txt = LICENSE.txt
-		nsharp.props = nsharp.props
+		nsharp.schema.json = nsharp.schema.json
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -37,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Ninja", "src\Nsharp.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F07C1785-2309-444E-96E5-C511EFCCFD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.SetupNinja", "tools\Nsharp.SetupNinja\Nsharp.SetupNinja.csproj", "{459F9BE5-D3BE-41CF-97C8-FC549D5F86AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.SetupNinja", "tools\Nsharp.SetupNinja\Nsharp.SetupNinja.csproj", "{459F9BE5-D3BE-41CF-97C8-FC549D5F86AC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.SetupCmake", "tools\Nsharp.SetupCmake\Nsharp.SetupCmake.csproj", "{6B869383-92CD-4846-B743-B6BE48E9587C}"
 EndProject

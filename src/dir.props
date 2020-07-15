@@ -1,6 +1,6 @@
 <Project>
 
-	<Import Project="../nsharp.props" />
+	<Import Project="../dir.props" />
 
 	<PropertyGroup>
 		<LangVersion>8</LangVersion>
