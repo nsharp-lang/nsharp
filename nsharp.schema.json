@@ -41,10 +41,15 @@
 			},
 			"type": "object"
 		},
+		"dependencies": {},
+		"licence": {},
 		"name": {
 			"description": "The name of the package",
 			"type": "string"
 		},
+		"readme": {},
+		"repository": {},
+		"targets": {},
 		"type": {
 			"description": "The type of the package",
 			"enum": [
