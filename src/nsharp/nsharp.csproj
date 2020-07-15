@@ -9,15 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0034" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
 		<PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20071.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Nsharp.Cmake\Nsharp.Cmake.csproj" />
-	  <ProjectReference Include="..\Nsharp.Git\Nsharp.Git.csproj" />
-	  <ProjectReference Include="..\Nsharp.Ninja\Nsharp.Ninja.csproj" />
 	</ItemGroup>
 
 </Project>
