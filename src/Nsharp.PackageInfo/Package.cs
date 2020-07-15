@@ -7,6 +7,8 @@ namespace Nsharp.PackageInfo {
 
 	public class Package {
 
+		public ICollection<Author>? Authors { get; set; }
+
 		[Required]
 		public string Name { get; set; }
 
@@ -15,6 +17,10 @@ namespace Nsharp.PackageInfo {
 
 		[Required]
 		public string Version { get; set; }
+
+		public IEnumerable<ValidationResult> Validate() {
+			throw new NotImplementedException();
+		}
 
 	}
 
