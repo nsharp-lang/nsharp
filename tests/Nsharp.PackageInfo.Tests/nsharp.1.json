@@ -1,0 +1,6 @@
+{
+	"$schema": "https://raw.githubusercontent.com/nsharp-lang/nsharp/master/nsharp.schema.json",
+	"name": "nsharp-1-json",
+	"type": "library",
+	"version": "1.0.0"
+}
