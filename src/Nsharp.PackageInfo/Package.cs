@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace Nsharp.PackageInfo {
 
@@ -19,13 +18,19 @@ namespace Nsharp.PackageInfo {
 		public string Version { get; set; }
 
 		public IEnumerable<ValidationResult> Validate() {
+			var requiredAttribute = new RequiredAttribute();
+
 			var result = new List<ValidationResult>();
 
-			if (this.Name == null) { result.Add(new ValidationResult($"{nameof(this.Name)} is null", new string[] { nameof(this.Name) })); }
+			foreach(var author in this.Authors ?? Array.Empty<Author>()) {
+				result.AddRange(author.Validate());
+			}
 
-			if (this.Type == Type.Undefined) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(Type.Undefined)}", new string[] { nameof(this.Type) })); }
+			if (!requiredAttribute.IsValid(this.Name)) { result.Add(new ValidationResult($"{nameof(this.Name)} is null", new string[] { nameof(this.Name) })); }
 
-			if (this.Version == null) { result.Add(new ValidationResult($"{nameof(this.Version)} is null", new string[] { nameof(this.Version) })); }
+			if (!requiredAttribute.IsValid(this.Type)) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(Type.Undefined)}", new string[] { nameof(this.Type) })); }
+
+			if (!requiredAttribute.IsValid(this.Version)) { result.Add(new ValidationResult($"{nameof(this.Version)} is null", new string[] { nameof(this.Version) })); }
 
 			return result;
 		}
