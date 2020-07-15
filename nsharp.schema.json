@@ -44,5 +44,6 @@
 		"name",
 		"version"
 	],
+	"title": "JSON schema for NSHARP nsharp.json files",
 	"type": "object"
 }
