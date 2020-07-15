@@ -13,6 +13,7 @@ namespace Nsharp.PackageInfo.Tests {
 					""version"": ""1.0.0-alpha3""
 				}
 			");
+			Assert.Empty(package.Validate());
 		}
 
 	}

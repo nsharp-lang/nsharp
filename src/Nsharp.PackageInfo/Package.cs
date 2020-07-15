@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Nsharp.PackageInfo {
 
-	public class Package : IValidatableObject {
+	public class Package {
 
 		public ICollection<Author>? Authors { get; set; }
 
@@ -18,8 +18,16 @@ namespace Nsharp.PackageInfo {
 		[Required]
 		public string Version { get; set; }
 
-		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
-			throw new NotImplementedException();
+		public IEnumerable<ValidationResult> Validate() {
+			var result = new List<ValidationResult>();
+
+			if (this.Name == null) { result.Add(new ValidationResult($"{nameof(this.Name)} is null", new string[] { nameof(this.Name) })); }
+
+			if (this.Type == Type.Undefined) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(Type.Undefined)}", new string[] { nameof(this.Type) })); }
+
+			if (this.Version == null) { result.Add(new ValidationResult($"{nameof(this.Version)} is null", new string[] { nameof(this.Version) })); }
+
+			return result;
 		}
 
 	}
