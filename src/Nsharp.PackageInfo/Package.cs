@@ -10,8 +10,18 @@ namespace Nsharp.PackageInfo {
 
 		public BuildOptions? BuildOptions { get; set; }
 
+		public Dependencies? Dependencies { get; set; }
+
+		public Licence? Licence { get; set; }
+
 		[Required]
 		public string Name { get; set; }
+
+		public string? Readme { get; set; }
+
+		public Uri? Repository { get; set; }
+
+		public ICollection<Target>? Targets { get; set; }
 
 		[Required]
 		public Type Type { get; set; }
@@ -24,7 +34,7 @@ namespace Nsharp.PackageInfo {
 
 			var result = new List<ValidationResult>();
 
-			foreach(var author in this.Authors ?? Array.Empty<Author>()) {
+			foreach (var author in this.Authors ?? Array.Empty<Author>()) {
 				result.AddRange(author.Validate());
 			}
 
