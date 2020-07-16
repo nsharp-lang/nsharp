@@ -3,8 +3,8 @@
 	<Import Project="../dir.props" />
 
 	<PropertyGroup>
+		<AssemblyName>nsharp</AssemblyName>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>Nsharp</RootNamespace>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 
