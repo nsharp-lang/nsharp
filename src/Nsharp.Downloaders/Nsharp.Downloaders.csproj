@@ -1,13 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<Import Project="../dir.props" />
-
+	
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Nsharp.Downloader.Core\Nsharp.Downloader.Core.csproj" />
-	</ItemGroup>
 
 </Project>
