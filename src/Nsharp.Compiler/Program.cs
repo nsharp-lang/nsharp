@@ -5,8 +5,9 @@ namespace Nsharp.Compiler {
 
 	public class Program {
 
-		public static async Task Main(string[] args) {
-			await Console.Out.WriteLineAsync("Hello World!");
+		public static async Task<int> Main(string[] args) {
+			Console.WriteLine("Hello World!");
+			return await Task.FromResult(0);
 		}
 
 	}
