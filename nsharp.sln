@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nsharp.json", "nsharp.json"
 	ProjectSection(SolutionItems) = preProject
 		docs\project-structure\nsharp.json\example-1.json = docs\project-structure\nsharp.json\example-1.json
 		docs\project-structure\nsharp.json\example-2.json = docs\project-structure\nsharp.json\example-2.json
+		docs\project-structure\nsharp.json\example-3.json = docs\project-structure\nsharp.json\example-3.json
 		docs\project-structure\nsharp.json\README.md = docs\project-structure\nsharp.json\README.md
 	EndProjectSection
 EndProject
