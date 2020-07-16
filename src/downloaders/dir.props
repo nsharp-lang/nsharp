@@ -1,0 +1,8 @@
+<Project>
+
+	<Import Project="../dir.props" />
+
+	<PropertyGroup>
+	</PropertyGroup>
+
+</Project>
