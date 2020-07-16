@@ -44,9 +44,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nsharp.json", "nsharp.json"
 		docs\project-structure\nsharp.json\README.md = docs\project-structure\nsharp.json\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Interpreter", "src\Nsharp.Interpreter\Nsharp.Interpreter.csproj", "{B34D5291-C292-4789-A51E-F8C5757D59B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Interpreter", "src\Nsharp.Interpreter\Nsharp.Interpreter.csproj", "{B34D5291-C292-4789-A51E-F8C5757D59B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Compiler", "src\Nsharp.Compiler\Nsharp.Compiler.csproj", "{86A01921-80BE-4D59-A866-5A5625212E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Compiler", "src\Nsharp.Compiler\Nsharp.Compiler.csproj", "{86A01921-80BE-4D59-A866-5A5625212E7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E181C650-F53E-40E0-BC92-E207F4ECAF14}"
 EndProject
@@ -55,9 +55,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\workflow.yaml = .github\workflows\workflow.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Downloader.Zip", "src\Nsharp.Downloader.Zip\Nsharp.Downloader.Zip.csproj", "{3B3EC73A-3109-4EF3-AC24-8CC6757FFDE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Downloader.Zip", "src\Nsharp.Downloader.Zip\Nsharp.Downloader.Zip.csproj", "{3B3EC73A-3109-4EF3-AC24-8CC6757FFDE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Downloader.Git", "src\Nsharp.Downloader.Git\Nsharp.Downloader.Git.csproj", "{E5F8CF03-ECED-403B-9F55-5DACCC42FF26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Downloader.Git", "src\Nsharp.Downloader.Git\Nsharp.Downloader.Git.csproj", "{E5F8CF03-ECED-403B-9F55-5DACCC42FF26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Downloader.Core", "src\Nsharp.Downloader.Core\Nsharp.Downloader.Core.csproj", "{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,18 @@ Global
 		{E5F8CF03-ECED-403B-9F55-5DACCC42FF26}.Release|x64.Build.0 = Release|Any CPU
 		{E5F8CF03-ECED-403B-9F55-5DACCC42FF26}.Release|x86.ActiveCfg = Release|Any CPU
 		{E5F8CF03-ECED-403B-9F55-5DACCC42FF26}.Release|x86.Build.0 = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|x64.Build.0 = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Debug|x86.Build.0 = Debug|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|x64.ActiveCfg = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|x64.Build.0 = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|x86.ActiveCfg = Release|Any CPU
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +195,7 @@ Global
 		{CEEDAAB9-C755-493E-A5CB-3BB36F3760A2} = {E181C650-F53E-40E0-BC92-E207F4ECAF14}
 		{3B3EC73A-3109-4EF3-AC24-8CC6757FFDE6} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 		{E5F8CF03-ECED-403B-9F55-5DACCC42FF26} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
+		{9CAFD1F1-B35D-4A78-85DE-5B6CEA2FC8E2} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A811E5C-A587-4C02-8B83-C4770509C8C4}
