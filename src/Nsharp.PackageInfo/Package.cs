@@ -24,7 +24,7 @@ namespace Nsharp.PackageInfo {
 		public ICollection<Target>? Targets { get; set; }
 
 		[Required]
-		public Type Type { get; set; }
+		public PackageType Type { get; set; }
 
 		[Required]
 		public string Version { get; set; }
@@ -40,7 +40,7 @@ namespace Nsharp.PackageInfo {
 
 			if (!requiredAttribute.IsValid(this.Name)) { result.Add(new ValidationResult($"{nameof(this.Name)} is null", new string[] { nameof(this.Name) })); }
 
-			if (!requiredAttribute.IsValid(this.Type)) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(Type.Undefined)}", new string[] { nameof(this.Type) })); }
+			if (!requiredAttribute.IsValid(this.Type)) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(PackageType.Undefined)}", new string[] { nameof(this.Type) })); }
 
 			if (!requiredAttribute.IsValid(this.Version)) { result.Add(new ValidationResult($"{nameof(this.Version)} is null", new string[] { nameof(this.Version) })); }
 

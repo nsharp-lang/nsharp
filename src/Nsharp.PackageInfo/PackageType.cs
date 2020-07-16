@@ -1,6 +1,6 @@
 namespace Nsharp.PackageInfo {
 
-	public enum Type {
+	public enum PackageType {
 
 		Undefined = 0,
 
