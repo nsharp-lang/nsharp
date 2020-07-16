@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content CopyToOutputDirectory="PreserveNewest" Include="1.nsharp.json" />
+		<Content CopyToOutputDirectory="PreserveNewest" Include="deserialize.nsharp.json" />
 	</ItemGroup>
 
 	<ItemGroup>

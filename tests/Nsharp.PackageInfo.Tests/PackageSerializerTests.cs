@@ -37,7 +37,7 @@ namespace Nsharp.PackageInfo.Tests {
 
 		[Fact]
 		public async Task DeserializeFact3() {
-			var fileInfo = new FileInfo($"{AppContext.BaseDirectory}1.nsharp.json");
+			var fileInfo = new FileInfo($"{AppContext.BaseDirectory}deserialize.nsharp.json");
 			var package = await PackageSerializer.DeserializeAsync(fileInfo);
 			Assert.Empty(package.Validate());
 		}
