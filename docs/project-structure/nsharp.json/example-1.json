@@ -1,6 +1,0 @@
-{
-	"$schema": "https://raw.githubusercontent.com/nsharp-lang/nsharp/master/nsharp.schema.json",
-	"name": "name-of-package",
-	"type": "library",
-	"version": "1.0.0-alpha4"
-}
