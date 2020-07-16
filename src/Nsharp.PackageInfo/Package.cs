@@ -8,6 +8,8 @@ namespace Nsharp.PackageInfo {
 
 		public ICollection<Author>? Authors { get; set; }
 
+		public BuildOptions? BuildOptions { get; set; }
+
 		[Required]
 		public string Name { get; set; }
 
