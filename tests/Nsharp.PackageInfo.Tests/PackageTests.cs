@@ -61,7 +61,7 @@ namespace Nsharp.PackageInfo.Tests {
 		[Fact]
 		public void Fact6() {
 			var package = new Package {
-				Authors = {
+				Authors = new[]{
 					new Author { Email = "deinok@deinok.com" }
 				},
 				Name = "package-name",
