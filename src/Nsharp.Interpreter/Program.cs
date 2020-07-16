@@ -6,7 +6,7 @@ namespace Nsharp.Interpreter {
 	public class Program {
 
 		public static async Task Main(string[] args) {
-			Console.WriteLine("Hello World!");
+			await Console.Out.WriteLineAsync("Hello World!");
 		}
 
 	}
