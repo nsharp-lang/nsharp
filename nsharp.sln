@@ -48,6 +48,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Interpreter", "src\N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Compiler", "src\Nsharp.Compiler\Nsharp.Compiler.csproj", "{86A01921-80BE-4D59-A866-5A5625212E7E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E181C650-F53E-40E0-BC92-E207F4ECAF14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CEEDAAB9-C755-493E-A5CB-3BB36F3760A2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\workflow.yaml = .github\workflows\workflow.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +150,7 @@ Global
 		{79559DD9-7465-401D-96EE-B1F6AB734298} = {4586177D-86CF-48D1-80B3-79BE797D6149}
 		{B34D5291-C292-4789-A51E-F8C5757D59B2} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 		{86A01921-80BE-4D59-A866-5A5625212E7E} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
+		{CEEDAAB9-C755-493E-A5CB-3BB36F3760A2} = {E181C650-F53E-40E0-BC92-E207F4ECAF14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A811E5C-A587-4C02-8B83-C4770509C8C4}
