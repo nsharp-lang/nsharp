@@ -32,11 +32,16 @@ namespace Nsharp.PackageInfo {
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
 			var validationResults = new List<ValidationResult>();
 
+			foreach (var author in this.Authors ?? Array.Empty<Author>()) {
+				Validator.ValidateObject(author, validationContext);
+			}
+
 			validationContext.MemberName = nameof(this.Name);
 			Validator.TryValidateProperty(this.Name, validationContext, validationResults);
 
 			validationContext.MemberName = nameof(this.Type);
 			Validator.TryValidateProperty(this.Type, validationContext, validationResults);
+			if (this.Type == PackageType.Undefined) { validationResults.Add(new ValidationResult($"The {nameof(this.Type)} field can't be {nameof(PackageType.Undefined)}.", new string[] { nameof(this.Type) })); }
 
 			validationContext.MemberName = nameof(this.Version);
 			Validator.TryValidateProperty(this.Version, validationContext, validationResults);
