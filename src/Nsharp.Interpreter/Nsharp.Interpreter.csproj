@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="../dir.props" />
+	
+	<PropertyGroup>
+		<AssemblyName>nsharp-interpreter</AssemblyName>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+</Project>
