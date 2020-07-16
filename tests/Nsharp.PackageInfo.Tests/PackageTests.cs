@@ -58,6 +58,20 @@ namespace Nsharp.PackageInfo.Tests {
 			Assert.NotEmpty(package.Validate(validationContext));
 		}
 
+		[Fact]
+		public void Fact6() {
+			var package = new Package {
+				Authors = {
+					new Author { Email = "deinok@deinok.com" }
+				},
+				Name = "package-name",
+				Type = PackageType.Executable,
+				Version = "1.0.0-alpha1",
+			};
+			var validationContext = new ValidationContext(package);
+			Assert.Empty(package.Validate(validationContext));
+		}
+
 	}
 
 }

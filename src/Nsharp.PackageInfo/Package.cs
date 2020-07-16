@@ -6,7 +6,7 @@ namespace Nsharp.PackageInfo {
 
 	public class Package : IValidatableObject {
 
-		public ICollection<Author>? Authors { get; set; }
+		public ICollection<Author> Authors { get; set; } = new List<Author>();
 
 		public BuildOptions? BuildOptions { get; set; }
 
@@ -34,8 +34,9 @@ namespace Nsharp.PackageInfo {
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
 			var validationResults = new List<ValidationResult>();
 
-			foreach (var author in this.Authors ?? Array.Empty<Author>()) {
-				Validator.ValidateObject(author, validationContext);
+			foreach (var author in this.Authors) {
+				var authorValidationContext = new ValidationContext(author);
+				Validator.TryValidateObject(author, authorValidationContext, validationResults);
 			}
 
 			validationContext.MemberName = nameof(this.BuildOptions);
