@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,8 @@ namespace Nsharp.PackageInfo.Tests {
 				}
 			";
 			var package = PackageSerializer.Deserialize(jsonString);
-			Assert.Empty(package.Validate());
+			var validationContext = new ValidationContext(package);
+			Assert.Empty(package.Validate(validationContext));
 		}
 
 		[Fact]
@@ -32,14 +34,16 @@ namespace Nsharp.PackageInfo.Tests {
 			";
 			await using var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
 			var package = await PackageSerializer.DeserializeAsync(memoryStream);
-			Assert.Empty(package.Validate());
+			var validationContext = new ValidationContext(package);
+			Assert.Empty(package.Validate(validationContext));
 		}
 
 		[Fact]
 		public async Task DeserializeFact3() {
 			var fileInfo = new FileInfo($"{AppContext.BaseDirectory}deserialize.nsharp.json");
 			var package = await PackageSerializer.DeserializeAsync(fileInfo);
-			Assert.Empty(package.Validate());
+			var validationContext = new ValidationContext(package);
+			Assert.Empty(package.Validate(validationContext));
 		}
 
 		[Fact]

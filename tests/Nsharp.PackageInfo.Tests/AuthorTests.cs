@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Xunit;
 
 namespace Nsharp.PackageInfo.Tests {
@@ -10,7 +11,8 @@ namespace Nsharp.PackageInfo.Tests {
 				Email = "deinok@deinok.com",
 				Name = "deinok"
 			};
-			Assert.Empty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.Empty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -18,14 +20,16 @@ namespace Nsharp.PackageInfo.Tests {
 			var author = new Author {
 				Email = "deinok@deinok.com",
 			};
-			Assert.Empty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.Empty(author.Validate(validationContext));
 		}
 
 		[Fact]
 		public void Fact3() {
 			var author = new Author {
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -33,7 +37,8 @@ namespace Nsharp.PackageInfo.Tests {
 			var author = new Author {
 				Name = "deinok"
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -42,7 +47,8 @@ namespace Nsharp.PackageInfo.Tests {
 				Email = "@deinok.com",
 				Name = "deinok"
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -51,7 +57,8 @@ namespace Nsharp.PackageInfo.Tests {
 				Email = "deinok.com",
 				Name = "deinok"
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -60,7 +67,8 @@ namespace Nsharp.PackageInfo.Tests {
 				Email = "deinok@",
 				Name = "deinok"
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 		[Fact]
@@ -69,7 +77,8 @@ namespace Nsharp.PackageInfo.Tests {
 				Email = "deinok",
 				Name = "deinok"
 			};
-			Assert.NotEmpty(author.Validate());
+			var validationContext = new ValidationContext(author);
+			Assert.NotEmpty(author.Validate(validationContext));
 		}
 
 	}

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nsharp.PackageInfo {
 
-	public class Author {
+	public class Author : IValidatableObject {
 
 		[EmailAddress]
 		[Required]
@@ -11,16 +11,16 @@ namespace Nsharp.PackageInfo {
 
 		public string? Name { get; set; }
 
-		public IEnumerable<ValidationResult> Validate() {
-			var emailAddressAttribute = new EmailAddressAttribute();
-			var requiredAttribute = new RequiredAttribute();
+		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
+			var validationResults = new List<ValidationResult>();
 
-			var result = new List<ValidationResult>();
+			validationContext.MemberName = nameof(this.Email);
+			Validator.TryValidateProperty(this.Email, validationContext, validationResults);
 
-			if (!requiredAttribute.IsValid(this.Email)) { result.Add(new ValidationResult($"{nameof(this.Email)} is null", new string[] { nameof(this.Email) })); }
-			if (requiredAttribute.IsValid(this.Email) && !emailAddressAttribute.IsValid(this.Email)) { result.Add(new ValidationResult($"{nameof(this.Email)} is not valid", new string[] { nameof(this.Email) })); }
+			validationContext.MemberName = nameof(this.Name);
+			Validator.TryValidateProperty(this.Name, validationContext, validationResults);
 
-			return result;
+			return validationResults;
 		}
 
 	}

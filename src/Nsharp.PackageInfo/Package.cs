@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nsharp.PackageInfo {
 
-	public class Package {
+	public class Package : IValidatableObject {
 
 		public ICollection<Author>? Authors { get; set; }
 
@@ -29,22 +29,19 @@ namespace Nsharp.PackageInfo {
 		[Required]
 		public string Version { get; set; }
 
-		public IEnumerable<ValidationResult> Validate() {
-			var requiredAttribute = new RequiredAttribute();
+		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
+			var validationResults = new List<ValidationResult>();
 
-			var result = new List<ValidationResult>();
+			validationContext.MemberName = nameof(this.Name);
+			Validator.TryValidateProperty(this.Name, validationContext, validationResults);
 
-			foreach (var author in this.Authors ?? Array.Empty<Author>()) {
-				result.AddRange(author.Validate());
-			}
+			validationContext.MemberName = nameof(this.Type);
+			Validator.TryValidateProperty(this.Type, validationContext, validationResults);
 
-			if (!requiredAttribute.IsValid(this.Name)) { result.Add(new ValidationResult($"{nameof(this.Name)} is null", new string[] { nameof(this.Name) })); }
+			validationContext.MemberName = nameof(this.Version);
+			Validator.TryValidateProperty(this.Version, validationContext, validationResults);
 
-			if (!requiredAttribute.IsValid(this.Type)) { result.Add(new ValidationResult($"{nameof(this.Type)} is {nameof(PackageType.Undefined)}", new string[] { nameof(this.Type) })); }
-
-			if (!requiredAttribute.IsValid(this.Version)) { result.Add(new ValidationResult($"{nameof(this.Version)} is null", new string[] { nameof(this.Version) })); }
-
-			return result;
+			return validationResults;
 		}
 
 	}
