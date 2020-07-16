@@ -30,7 +30,7 @@ namespace Nsharp.PackageInfo {
 		}
 
 		public static string Serialize(Package package) {
-			return JsonSerializer.Serialize<Package>(package, jsonSerializerOptions);
+			return JsonSerializer.Serialize(package, jsonSerializerOptions);
 		}
 
 		public static async Task SerializeAsync(Package package, FileInfo fileInfo, CancellationToken cancellationToken = default) {
