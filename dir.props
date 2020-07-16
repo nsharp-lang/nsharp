@@ -1,2 +1,12 @@
 <Project>
+
+	<PropertyGroup>
+		<LangVersion>8</LangVersion>
+		<Nullable>annotations</Nullable>
+		<RepositoryUrl>https://github.com/nsharp-lang/nsharp.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<WarningLevel>4</WarningLevel>
+		<WarningsAsErrors>true</WarningsAsErrors>
+	</PropertyGroup>
+	
 </Project>

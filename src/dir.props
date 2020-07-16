@@ -3,9 +3,6 @@
 	<Import Project="../dir.props" />
 
 	<PropertyGroup>
-		<LangVersion>8</LangVersion>
-		<Nullable>annotations</Nullable>
-		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
 </Project>
