@@ -26,8 +26,8 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: "3.1.302"
-    - run: dotnet publish --configuration Release --output /artifacts/Nsharp/ ./src/Nsharp/Nsharp.csproj
+    - run: dotnet publish --configuration Release --output ./artifacts/Nsharp/ ./src/Nsharp/Nsharp.csproj
     - uses: actions/upload-artifact@v2
       with:
         name: Nsharp
-        path: /artifacts/Nsharp/
+        path: ./artifacts/Nsharp/
