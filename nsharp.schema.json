@@ -92,6 +92,20 @@
 		},
 		"targets": {
 			"description": "Overrides the configuration for target",
+			"properties": {
+				"x86_64-apple-darwin": {
+					"description": "Overrides the configuration for the x86_64-apple-darwin target",
+					"type": "object"
+				},
+				"x86_64-pc-windows-msvc": {
+					"description": "Overrides the configuration for the x86_64-pc-windows-msvc target",
+					"type": "object"
+				},
+				"x86_64-unknown-linux-gnu": {
+					"description": "Overrides the configuration for the x86_64-unknown-linux-gnu target",
+					"type": "object"
+				}
+			},
 			"type": "object"
 		},
 		"type": {
