@@ -20,7 +20,7 @@ jobs:
   publish:
     name: "Publish"
     needs: [ check-build-test ]
-    runs-on: "ubuntu-20.04"
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-dotnet@v1
@@ -29,5 +29,8 @@ jobs:
     - run: dotnet publish --configuration Release --output ./artifacts/Nsharp/ ./src/Nsharp/Nsharp.csproj
     - uses: actions/upload-artifact@v2
       with:
-        name: Nsharp
+        name: Nsharp-${{ matrix.os }}
         path: ./artifacts/Nsharp/
+    strategy:
+      matrix:
+        os: [ "macos-10.15", "ubuntu-16.04", "ubuntu-18.04", "ubuntu-20.04", "windows-2019" ]
