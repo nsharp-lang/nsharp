@@ -10,8 +10,9 @@ namespace Nsharp.PackageInfo {
 
 		private static readonly JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions {
 			Converters = {
-				new JsonStringEnumConverter(),
+				new JsonStringEnumConverter(namingPolicy: JsonNamingPolicy.CamelCase),
 			},
+			IgnoreNullValues = true,
 			PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 			WriteIndented = true,
 		};
