@@ -10,6 +10,8 @@ namespace Nsharp.PackageInfo {
 
 		public BuildOptions? BuildOptions { get; set; }
 
+		public BuildTypes? BuildTypes { get; set; }
+
 		public Dependencies? Dependencies { get; set; }
 
 		public Licence? Licence { get; set; }
@@ -35,6 +37,12 @@ namespace Nsharp.PackageInfo {
 			foreach (var author in this.Authors ?? Array.Empty<Author>()) {
 				Validator.ValidateObject(author, validationContext);
 			}
+
+			validationContext.MemberName = nameof(this.BuildOptions);
+			Validator.TryValidateProperty(this.BuildOptions, validationContext, validationResults);
+
+			validationContext.MemberName = nameof(this.BuildTypes);
+			Validator.TryValidateProperty(this.BuildTypes, validationContext, validationResults);
 
 			validationContext.MemberName = nameof(this.Name);
 			Validator.TryValidateProperty(this.Name, validationContext, validationResults);

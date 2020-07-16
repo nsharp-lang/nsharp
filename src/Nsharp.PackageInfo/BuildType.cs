@@ -1,6 +1,6 @@
 namespace Nsharp.PackageInfo {
 
-	public class BuildOption {
+	public class BuildType {
 	}
 
 }
