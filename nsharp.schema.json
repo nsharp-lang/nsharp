@@ -93,6 +93,14 @@
 		"targets": {
 			"description": "Overrides the configuration for target",
 			"properties": {
+				"ecmascript-browser-es2015": {
+					"description": "Overrides the configuration for the ecmascript-browser-es2015 target",
+					"type": "object"
+				},
+				"ecmascript-node-v14": {
+					"description": "Overrides the configuration for the ecmascript-node-v14 target",
+					"type": "object"
+				},
 				"x86_64-apple-darwin": {
 					"description": "Overrides the configuration for the x86_64-apple-darwin target",
 					"type": "object"
