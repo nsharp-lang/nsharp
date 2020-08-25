@@ -16,13 +16,13 @@ namespace Nsharp.PackageInfo {
 
 			Validator.TryValidateProperty(
 				this.Email,
-				new ValidationContext(this, null, null){MemberName = nameof(this.Email)},
+				new ValidationContext(this, null, null) { MemberName = nameof(this.Email) },
 				validationResults
 			);
 
 			Validator.TryValidateProperty(
 				this.Name,
-				new ValidationContext(this, null, null){MemberName = nameof(this.Name)},
+				new ValidationContext(this, null, null) { MemberName = nameof(this.Name) },
 				validationResults
 			);
 
