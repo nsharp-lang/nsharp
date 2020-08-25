@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nsharp.PackageInfo {
+namespace Nsharp.PackageSerde {
 
 	public class Dependency {
 

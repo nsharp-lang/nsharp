@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Nsharp.PackageInfo\Nsharp.PackageInfo.csproj" />
+		<ProjectReference Include="..\..\src\Nsharp.PackageSerde\Nsharp.PackageSerde.csproj" />
 	</ItemGroup>
 
 </Project>

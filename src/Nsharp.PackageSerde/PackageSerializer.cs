@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Nsharp.PackageInfo {
+namespace Nsharp.PackageSerde {
 
 	public static class PackageSerializer {
 

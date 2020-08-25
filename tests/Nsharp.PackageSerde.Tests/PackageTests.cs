@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Xunit;
 
-namespace Nsharp.PackageInfo.Tests {
+namespace Nsharp.PackageSerde.Tests {
 
 	public class PackageTests {
 

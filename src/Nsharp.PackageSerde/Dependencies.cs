@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Nsharp.PackageInfo {
+namespace Nsharp.PackageSerde {
 
 	public class Dependencies {
 

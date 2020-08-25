@@ -1,4 +1,4 @@
-namespace Nsharp.PackageInfo {
+namespace Nsharp.PackageSerde {
 
 	public class BuildOptions {
 
