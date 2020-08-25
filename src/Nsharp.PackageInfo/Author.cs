@@ -14,11 +14,17 @@ namespace Nsharp.PackageInfo {
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
 			var validationResults = new List<ValidationResult>();
 
-			validationContext.MemberName = nameof(this.Email);
-			Validator.TryValidateProperty(this.Email, validationContext, validationResults);
+			Validator.TryValidateProperty(
+				this.Email,
+				new ValidationContext(this, null, null){MemberName = nameof(this.Email)},
+				validationResults
+			);
 
-			validationContext.MemberName = nameof(this.Name);
-			Validator.TryValidateProperty(this.Name, validationContext, validationResults);
+			Validator.TryValidateProperty(
+				this.Name,
+				new ValidationContext(this, null, null){MemberName = nameof(this.Name)},
+				validationResults
+			);
 
 			return validationResults;
 		}
