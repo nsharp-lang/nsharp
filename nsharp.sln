@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.PackageSerde.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.PackageSerde", "src\Nsharp.PackageSerde\Nsharp.PackageSerde.csproj", "{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Sdk", "src\Nsharp.Sdk\Nsharp.Sdk.csproj", "{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,18 @@ Global
 		{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}.Release|x64.Build.0 = Release|Any CPU
 		{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}.Release|x86.ActiveCfg = Release|Any CPU
 		{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}.Release|x86.Build.0 = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|x64.Build.0 = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|x64.ActiveCfg = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|x64.Build.0 = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +195,7 @@ Global
 		{DB15EB32-B162-4ABF-B6C9-710C4F9ADD8A} = {02A46024-FA17-4D32-AFF7-6FA210071CA7}
 		{F1E67274-9DB6-42CC-BC25-057CEA2D2CA7} = {02A46024-FA17-4D32-AFF7-6FA210071CA7}
 		{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
+		{6A0EB7B8-6223-4AD3-9960-0C464D8B3372} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A811E5C-A587-4C02-8B83-C4770509C8C4}
