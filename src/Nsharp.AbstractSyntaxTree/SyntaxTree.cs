@@ -8,12 +8,14 @@ namespace Nsharp.AbstractSyntaxTree {
 
 	public class SyntaxTree {
 
-		public static SyntaxTree Parse(string text) {
-			return null;
+		public static async ValueTask<SyntaxTree> ParseAsync(string text, CancellationToken cancellationToken = default) {
+			var stringReader = new StringReader(text);
+			return await ParseAsync(stringReader, cancellationToken);
 		}
 
-		public static SyntaxTree Parse(Stream stream) {
-			return null;
+		public static async ValueTask<SyntaxTree> ParseAsync(Stream stream, CancellationToken cancellationToken = default) {
+			var streamReader = new StreamReader(stream);
+			return await ParseAsync(streamReader, cancellationToken);
 		}
 
 		public static async ValueTask<SyntaxTree> ParseAsync(TextReader textReader, CancellationToken cancellationToken = default) {
