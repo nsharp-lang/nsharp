@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,7 +19,10 @@ namespace Nsharp.AbstractSyntaxTree {
 		}
 
 		public static async ValueTask<SyntaxTree> ParseAsync(TextReader textReader, CancellationToken cancellationToken = default) {
-			var tokens = NsharpTokenizer.TokenizeAsync(textReader);
+			var tokens = NsharpTokenizer.TokenizeAsync(textReader, cancellationToken);
+			await foreach (var token in tokens) {
+				token.ToString();
+			}
 			return null;
 		}
 

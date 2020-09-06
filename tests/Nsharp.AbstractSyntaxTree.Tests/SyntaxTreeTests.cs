@@ -8,7 +8,7 @@ namespace Nsharp.AbstractSyntaxTree {
 
 		[Fact]
 		public async Task Fact1() {
-			SyntaxTree.ParseAsync("hola caracola;");
+			var a=await SyntaxTree.ParseAsync("hola caracola;");
 		}
 
 	}
