@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		dir.props = dir.props
 		dotnet-tools.json = dotnet-tools.json
+		global.json = global.json
 		LICENSE.txt = LICENSE.txt
 		nsharp.schema.json = nsharp.schema.json
 		README.md = README.md
@@ -51,19 +52,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\workflow.yaml = .github\workflows\workflow.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Downloaders", "src\Nsharp.Downloaders\Nsharp.Downloaders.csproj", "{DC18FCDF-7DD6-472C-A4B4-D5A4EC44F0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Downloaders", "src\Nsharp.Downloaders\Nsharp.Downloaders.csproj", "{DC18FCDF-7DD6-472C-A4B4-D5A4EC44F0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Downloaders.Tests", "tests\Nsharp.Downloaders.Tests\Nsharp.Downloaders.Tests.csproj", "{DB15EB32-B162-4ABF-B6C9-710C4F9ADD8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Downloaders.Tests", "tests\Nsharp.Downloaders.Tests\Nsharp.Downloaders.Tests.csproj", "{DB15EB32-B162-4ABF-B6C9-710C4F9ADD8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.PackageSerde.Tests", "tests\Nsharp.PackageSerde.Tests\Nsharp.PackageSerde.Tests.csproj", "{F1E67274-9DB6-42CC-BC25-057CEA2D2CA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.PackageSerde.Tests", "tests\Nsharp.PackageSerde.Tests\Nsharp.PackageSerde.Tests.csproj", "{F1E67274-9DB6-42CC-BC25-057CEA2D2CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.PackageSerde", "src\Nsharp.PackageSerde\Nsharp.PackageSerde.csproj", "{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.PackageSerde", "src\Nsharp.PackageSerde\Nsharp.PackageSerde.csproj", "{9524F536-EBBD-4DBB-BBE9-D7FC447CDEB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Sdk", "src\Nsharp.Sdk\Nsharp.Sdk.csproj", "{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Sdk", "src\Nsharp.Sdk\Nsharp.Sdk.csproj", "{6A0EB7B8-6223-4AD3-9960-0C464D8B3372}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.AbstractSyntaxTree", "src\Nsharp.AbstractSyntaxTree\Nsharp.AbstractSyntaxTree.csproj", "{876926F4-7327-4889-B6BB-F287DCC15A3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree", "src\Nsharp.AbstractSyntaxTree\Nsharp.AbstractSyntaxTree.csproj", "{876926F4-7327-4889-B6BB-F287DCC15A3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.AbstractSyntaxTree.Tests", "tests\Nsharp.AbstractSyntaxTree.Tests\Nsharp.AbstractSyntaxTree.Tests.csproj", "{A9F7A50A-666B-49DC-B603-3FB4D3006A5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree.Tests", "tests\Nsharp.AbstractSyntaxTree.Tests\Nsharp.AbstractSyntaxTree.Tests.csproj", "{A9F7A50A-666B-49DC-B603-3FB4D3006A5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
