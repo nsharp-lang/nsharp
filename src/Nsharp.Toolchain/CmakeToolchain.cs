@@ -60,8 +60,6 @@ namespace Nsharp.Toolchain
 				if (hashResultString == this.directoryHash) { return; }
 				this.directoryInfo.Delete();
 			}
-
-
 			await using var fileStream = this.zipFileInfo.OpenRead();
 			using var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Read);
 			zipArchive.ExtractToDirectory(this.directoryInfo.FullName, true);
