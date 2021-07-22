@@ -20,7 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		dir.props = dir.props
-		dotnet-tools.json = dotnet-tools.json
 		global.json = global.json
 		LICENSE.txt = LICENSE.txt
 		nsharp.schema.json = nsharp.schema.json
@@ -65,6 +64,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree", "src\Nsharp.AbstractSyntaxTree\Nsharp.AbstractSyntaxTree.csproj", "{876926F4-7327-4889-B6BB-F287DCC15A3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree.Tests", "tests\Nsharp.AbstractSyntaxTree.Tests\Nsharp.AbstractSyntaxTree.Tests.csproj", "{A9F7A50A-666B-49DC-B603-3FB4D3006A5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{01E92855-CC8F-432B-B48E-21C6B969688A}"
+	ProjectSection(SolutionItems) = preProject
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
