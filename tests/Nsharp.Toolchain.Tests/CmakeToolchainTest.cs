@@ -15,6 +15,12 @@ namespace Nsharp.Toolchain.Tests
 			await this.cmakeToolchain.DownloadAsync();
         }
 
-    }
+		[Fact]
+		public async Task ExtractAsyncFact()
+		{
+			await this.cmakeToolchain.ExtractAsync();
+		}
+
+	}
 
 }
