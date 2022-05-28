@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}"
 	ProjectSection(SolutionItems) = preProject
@@ -65,14 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.AbstractSyntaxTree.Tests", "tests\Nsharp.AbstractSyntaxTree.Tests\Nsharp.AbstractSyntaxTree.Tests.csproj", "{A9F7A50A-666B-49DC-B603-3FB4D3006A5C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{01E92855-CC8F-432B-B48E-21C6B969688A}"
-	ProjectSection(SolutionItems) = preProject
-		.config\dotnet-tools.json = .config\dotnet-tools.json
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Toolchain", "src\Nsharp.Toolchain\Nsharp.Toolchain.csproj", "{F642D681-AEA9-4096-8BDA-EA43776FF986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Toolchain", "src\Nsharp.Toolchain\Nsharp.Toolchain.csproj", "{F642D681-AEA9-4096-8BDA-EA43776FF986}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsharp.Toolchain.Tests", "tests\Nsharp.Toolchain.Tests\Nsharp.Toolchain.Tests.csproj", "{48927491-22A9-4199-80B8-28D5F881758E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Toolchain.Tests", "tests\Nsharp.Toolchain.Tests\Nsharp.Toolchain.Tests.csproj", "{48927491-22A9-4199-80B8-28D5F881758E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
