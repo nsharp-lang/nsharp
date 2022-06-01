@@ -1,17 +1,14 @@
-on: [push]
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: "${{ matrix.os }}"
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
+    - uses: "actions/checkout@v3"
       with:
-        dotnet-version: "3.1.302"
-    - run: dotnet tool restore
-    - run: dotnet format --check  
-    - run: dotnet restore
-    - run: dotnet build
-    - run: dotnet test
+        submodules: true
+    - uses: "actions/setup-dotnet@v2"
+      with:
+        global-json-file: "global.json"
+    - run: "dotnet restore"
     strategy:
       matrix:
         os: [
@@ -25,30 +22,6 @@ jobs:
           "windows-2019",
           "windows-2022"
         ]
-  publish:
-    name: "Publish"
-    needs: [ check-build-test ]
-    runs-on: ${{ matrix.os }}
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "3.1.302"
-    - run: dotnet publish --configuration Release --output ./artifacts/Nsharp/ ./src/Nsharp/Nsharp.csproj
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Nsharp-${{ matrix.os }}
-        path: ./artifacts/Nsharp/
-    strategy:
-      matrix:
-        os: [
-          "macos-10.15",
-          "macos-11",
-          "macos-12",
-          "ubuntu-16.04",
-          "ubuntu-18.04",
-          "ubuntu-20.04",
-          "ubuntu-22.04",
-          "windows-2019",
-          "windows-2022"
-        ]
+on: [
+  "push"
+]

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<LangVersion>8</LangVersion>
+		<LangVersion>10</LangVersion>
 		<NoWarn>CS1591</NoWarn>
 		<Nullable>annotations</Nullable>
 		<RepositoryUrl>https://github.com/nsharp-lang/nsharp.git</RepositoryUrl>
