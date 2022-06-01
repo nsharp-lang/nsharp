@@ -8,15 +8,28 @@
 
 	<ItemGroup>
 		<Content CopyToOutputDirectory="PreserveNewest" Include="./bin/install/CMake/**/*" Pack="true" PackagePath="./tools/$(TargetFramework)/$(RuntimeIdentifier)/" />
+		<Content CopyToOutputDirectory="PreserveNewest" Include="./bin/install/llvm-project/**/*" Pack="true" PackagePath="./tools/$(TargetFramework)/$(RuntimeIdentifier)/" />
 		<Content CopyToOutputDirectory="PreserveNewest" Include="./bin/install/ninja/**/*" Pack="true" PackagePath="./tools/$(TargetFramework)/$(RuntimeIdentifier)/" />
 	</ItemGroup>
 
-	<Target BeforeTargets="Build" Name="BuildCMake">
+	<Target BeforeTargets="Build" Name="BuildCmake">
 		<PropertyGroup>
 			<BuildDirectory>$(MSBuildProjectDirectory)/bin/build/CMake/</BuildDirectory>
 			<Generator>"Visual Studio 17 2022"</Generator>
 			<InstallDirectory>$(MSBuildProjectDirectory)/bin/install/CMake/</InstallDirectory>
 			<SourceDirectory>$(MSBuildProjectDirectory)/../../libs/CMake/</SourceDirectory>
+		</PropertyGroup>
+		<Exec Command="cmake -B $(BuildDirectory) -G $(Generator) -S $(SourceDirectory)" />
+		<Exec Command="cmake --build $(BuildDirectory) --config Release --parallel 1" />
+		<Exec Command="cmake --install $(BuildDirectory) --config Release --prefix $(InstallDirectory)" />
+	</Target>
+
+	<Target BeforeTargets="Build" Name="BuildLlvm">
+		<PropertyGroup>
+			<BuildDirectory>$(MSBuildProjectDirectory)/bin/build/llvm-project/</BuildDirectory>
+			<Generator>"Visual Studio 17 2022"</Generator>
+			<InstallDirectory>$(MSBuildProjectDirectory)/bin/install/llvm-project/</InstallDirectory>
+			<SourceDirectory>$(MSBuildProjectDirectory)/../../libs/llvm-project/llvm/</SourceDirectory>
 		</PropertyGroup>
 		<Exec Command="cmake -B $(BuildDirectory) -G $(Generator) -S $(SourceDirectory)" />
 		<Exec Command="cmake --build $(BuildDirectory) --config Release --parallel 1" />
