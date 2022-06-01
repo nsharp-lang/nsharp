@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		.gitmodules = .gitmodules
 		dir.props = dir.props
 		global.json = global.json
 		LICENSE.txt = LICENSE.txt
@@ -48,7 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E181
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CEEDAAB9-C755-493E-A5CB-3BB36F3760A2}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\workflow.yaml = .github\workflows\workflow.yaml
+		.github\workflows\main.yaml = .github\workflows\main.yaml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Downloaders", "src\Nsharp.Downloaders\Nsharp.Downloaders.csproj", "{DC18FCDF-7DD6-472C-A4B4-D5A4EC44F0B7}"
@@ -68,6 +69,25 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Toolchain", "src\Nsharp.Toolchain\Nsharp.Toolchain.csproj", "{F642D681-AEA9-4096-8BDA-EA43776FF986}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsharp.Toolchain.Tests", "tests\Nsharp.Toolchain.Tests\Nsharp.Toolchain.Tests.csproj", "{48927491-22A9-4199-80B8-28D5F881758E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{89644D5E-3DDE-460E-B103-C62CE1006B8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMake", "CMake", "{7A596512-C9A1-44EC-B7E5-F69CB610F8C3}"
+	ProjectSection(SolutionItems) = preProject
+		libs\CMake\CMakeLists.txt = libs\CMake\CMakeLists.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "llvm-project", "llvm-project", "{ADBAA5F8-B113-4FFA-994F-6C9EBD5AB08B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "llvm", "llvm", "{7A64466C-9B98-488D-875B-328E456D14D3}"
+	ProjectSection(SolutionItems) = preProject
+		libs\llvm-project\llvm\CMakeLists.txt = libs\llvm-project\llvm\CMakeLists.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ninja", "ninja", "{87EA5CA3-EBB4-46E1-8BB4-AB96FECA2A4A}"
+	ProjectSection(SolutionItems) = preProject
+		libs\ninja\CMakeLists.txt = libs\ninja\CMakeLists.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -256,6 +276,10 @@ Global
 		{A9F7A50A-666B-49DC-B603-3FB4D3006A5C} = {02A46024-FA17-4D32-AFF7-6FA210071CA7}
 		{F642D681-AEA9-4096-8BDA-EA43776FF986} = {0A9D8473-66D5-4C70-9C3A-C0D0BAD84A7D}
 		{48927491-22A9-4199-80B8-28D5F881758E} = {02A46024-FA17-4D32-AFF7-6FA210071CA7}
+		{7A596512-C9A1-44EC-B7E5-F69CB610F8C3} = {89644D5E-3DDE-460E-B103-C62CE1006B8A}
+		{ADBAA5F8-B113-4FFA-994F-6C9EBD5AB08B} = {89644D5E-3DDE-460E-B103-C62CE1006B8A}
+		{7A64466C-9B98-488D-875B-328E456D14D3} = {ADBAA5F8-B113-4FFA-994F-6C9EBD5AB08B}
+		{87EA5CA3-EBB4-46E1-8BB4-AB96FECA2A4A} = {89644D5E-3DDE-460E-B103-C62CE1006B8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A811E5C-A587-4C02-8B83-C4770509C8C4}

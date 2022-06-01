@@ -7,7 +7,7 @@
 		<Nullable>annotations</Nullable>
 		<RepositoryUrl>https://github.com/nsharp-lang/nsharp.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<WarningLevel>4</WarningLevel>
+		<WarningLevel>5</WarningLevel>
 		<WarningsAsErrors>true</WarningsAsErrors>
 	</PropertyGroup>
 	
