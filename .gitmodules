@@ -1,0 +1,3 @@
+[submodule "libs/CMake"]
+	path = libs/CMake
+	url = https://github.com/Kitware/CMake.git
