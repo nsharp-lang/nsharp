@@ -19,7 +19,7 @@
 			<SourceDirectory>$(MSBuildProjectDirectory)/../../libs/CMake/</SourceDirectory>
 		</PropertyGroup>
 		<Exec Command="cmake -B $(BuildDirectory) -G $(Generator) -S $(SourceDirectory)" />
-		<Exec Command="cmake --build $(BuildDirectory) --config Release" />
+		<Exec Command="cmake --build $(BuildDirectory) --config Release --parallel 1" />
 		<Exec Command="cmake --install $(BuildDirectory) --config Release --prefix $(InstallDirectory)" />
 	</Target>
 
@@ -31,7 +31,7 @@
 			<SourceDirectory>$(MSBuildProjectDirectory)/../../libs/ninja/</SourceDirectory>
 		</PropertyGroup>
 		<Exec Command="cmake -B $(BuildDirectory) -G $(Generator) -S $(SourceDirectory)" />
-		<Exec Command="cmake --build $(BuildDirectory) --config Release" />
+		<Exec Command="cmake --build $(BuildDirectory) --config Release --parallel 1" />
 		<Exec Command="cmake --install $(BuildDirectory) --config Release --prefix $(InstallDirectory)" />
 	</Target>
 
