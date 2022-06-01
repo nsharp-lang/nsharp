@@ -4,3 +4,6 @@
 [submodule "libs/llvm-project"]
 	path = libs/llvm-project
 	url = https://github.com/llvm/llvm-project.git
+[submodule "libs/ninja"]
+	path = libs/ninja
+	url = https://github.com/ninja-build/ninja.git
